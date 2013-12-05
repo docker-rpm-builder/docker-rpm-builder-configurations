@@ -1,4 +1,4 @@
 docker-rpm-builder-configurations
 =================================
 
-prebuild configurations for docker-rpm-builder
+prebuilt configurations for docker-rpm-builder
