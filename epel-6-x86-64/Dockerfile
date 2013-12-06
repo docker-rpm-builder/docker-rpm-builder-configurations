@@ -1,5 +1,5 @@
 FROM centos:6.4
-MAINTAINER Alan
+MAINTAINER Alan Franzoni username@franzoni.eu
 ADD files/etc/yum.conf /etc/
 ADD files/tmp/0608B895.txt /tmp/
 ADD files/tmp/fd431d51.txt /tmp/
