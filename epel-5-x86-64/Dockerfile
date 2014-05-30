@@ -1,4 +1,4 @@
-FROM tianon/centos:5.9
+FROM tianon/centos:5.10
 MAINTAINER Alan Franzoni username@franzoni.eu
 ADD files/etc/yum.conf /etc/
 ADD files/etc/rpm/macros.drb /etc/rpm/macros.drb
