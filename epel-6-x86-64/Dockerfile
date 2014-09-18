@@ -9,5 +9,6 @@ RUN mkdir -p /docker-rpm-build-root/{SOURCES,RPMS,SRPMS,SPECS,BUILD,yum.repos.d}
 RUN chown -R mockbuild:mockbuild /docker-rpm-build-root
 RUN rpm --import /tmp/0608B895.txt /tmp/fd431d51.txt
 RUN yum clean metadata
+RUN yum install yum-presto
 RUN yum update
 RUN yum install @buildsys-build yum-utils
