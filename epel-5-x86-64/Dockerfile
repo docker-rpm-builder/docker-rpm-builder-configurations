@@ -2,10 +2,7 @@ FROM centos:centos5
 MAINTAINER Alan Franzoni username@franzoni.eu
 ADD files/etc/yum.conf /etc/
 ADD files/etc/rpm/macros.drb /etc/rpm/macros.drb
-ADD files/tmp/217521F6.txt /tmp/
-ADD files/tmp/fd431d51.txt /tmp/
-ADD files/tmp/RPM-Toolbox-Spec-0.05.tar.gz /tmp/
-ADD files/tmp/parse-spec-build-requires.pl /tmp/
+ADD files/tmp /tmp
 RUN useradd -s /sbin/nologin mockbuild
 RUN mkdir -p /docker-rpm-build-root/{SOURCES,RPMS,SRPMS,SPECS,BUILD,yum.repos.d}
 RUN chown -R mockbuild:mockbuild /docker-rpm-build-root
@@ -13,5 +10,5 @@ RUN rpm --import /tmp/217521F6.txt /tmp/fd431d51.txt
 RUN yum clean metadata
 RUN yum update
 RUN yum install @buildsys-build yum-utils buildsys-macros perl
-RUN cd /tmp && pwd && cd RPM-Toolbox-Spec-0.05 && perl Makefile.PL && make all install
+RUN cd /tmp && tar xzf /tmp/RPM-Toolbox-Spec-0.05.tar.gz && cd RPM-Toolbox-Spec-0.05 && perl Makefile.PL && make all install
 ADD files/tmp/yum-builddep /usr/bin/
