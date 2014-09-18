@@ -6,7 +6,7 @@ ADD files/tmp /tmp
 RUN useradd -s /sbin/nologin mockbuild
 RUN mkdir -p /docker-rpm-build-root/{SOURCES,RPMS,SRPMS,SPECS,BUILD,yum.repos.d}
 RUN chown -R mockbuild:mockbuild /docker-rpm-build-root
-RUN rpm --import /tmp/217521F6.txt /tmp/fd431d51.txt
+RUN rpm --import /tmp/*.pub
 RUN yum clean metadata
 RUN yum update
 RUN yum install @buildsys-build yum-utils buildsys-macros perl
