@@ -1,0 +1,10 @@
+#!/bin/bash
+set -ex
+BUILDREQUIRES=$(/tmp/parse-spec-build-requires.pl $1)
+SHOULDINSTALL=""
+for v in ${BUILDREQUIRES}
+do
+    PACKAGE=$(repoquery --arch=$(arch) --whatprovides ${v})
+    SHOULDINSTALL="${SHOULDINSTALL} ${PACKAGE}"
+done
+yum install $SHOULDINSTALL
