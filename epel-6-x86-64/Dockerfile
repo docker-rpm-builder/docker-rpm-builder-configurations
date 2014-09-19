@@ -1,4 +1,4 @@
-FROM centos:6.4
+FROM centos:centos6
 MAINTAINER Alan Franzoni username@franzoni.eu
 ADD files/etc/yum.conf /etc/
 ADD files/etc/rpm/macros.drb /etc/rpm/macros.drb
