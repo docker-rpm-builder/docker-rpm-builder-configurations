@@ -7,4 +7,5 @@ do
     PACKAGE=$(repoquery --arch=$(arch) --whatprovides ${v})
     SHOULDINSTALL="${SHOULDINSTALL} ${PACKAGE}"
 done
-yum install $SHOULDINSTALL
+SHOULDINSTALL=$(echo -n ${SHOULDINSTALL} | sed -e 's/^ *//' -e 's/ *$//')
+[ -n "${SHOULDINSTALL}" ] && yum install $SHOULDINSTALL
