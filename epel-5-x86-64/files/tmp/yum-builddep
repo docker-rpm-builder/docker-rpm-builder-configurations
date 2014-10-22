@@ -8,4 +8,4 @@ do
     SHOULDINSTALL="${SHOULDINSTALL} ${PACKAGE}"
 done
 SHOULDINSTALL=$(echo -n ${SHOULDINSTALL} | sed -e 's/^ *//' -e 's/ *$//')
-[ -n "${SHOULDINSTALL}" ] && yum install $SHOULDINSTALL
+{ [ -n "${SHOULDINSTALL}" ] && yum install $SHOULDINSTALL ; } || /bin/true
