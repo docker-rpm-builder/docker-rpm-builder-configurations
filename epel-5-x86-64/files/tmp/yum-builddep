@@ -4,7 +4,7 @@ BUILDREQUIRES=$(/tmp/parse-spec-build-requires.pl $1)
 SHOULDINSTALL=""
 for v in ${BUILDREQUIRES}
 do
-    PACKAGE=$(repoquery --arch=$(arch) --whatprovides ${v})
+    PACKAGE=$(repoquery --arch=$(arch) --whatprovides ${v} | head -n 1)
     SHOULDINSTALL="${SHOULDINSTALL} ${PACKAGE}"
 done
 SHOULDINSTALL=$(echo -n ${SHOULDINSTALL} | sed -e 's/^ *//' -e 's/ *$//')
