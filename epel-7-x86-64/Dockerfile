@@ -4,7 +4,7 @@ ADD files/etc/yum.conf /etc/
 ADD files/etc/rpm/macros.drb /etc/rpm/macros.drb
 ADD files/tmp /tmp
 RUN useradd -s /sbin/nologin mockbuild
-RUN mkdir -p /docker-rpm-build-root/{SOURCES,RPMS,SRPMS,SPECS,BUILD,yum.repos.d}
+RUN mkdir -p /docker-rpm-build-root/{SOURCES/hostdir,RPMS,SRPMS,SPECS,BUILD,yum.repos.d}
 RUN chown -R mockbuild:mockbuild /docker-rpm-build-root
 RUN rpm --import  /tmp/fd431d51.txt /tmp/RPM-GPG-KEY-CentOS-7 /tmp/RPM-GPG-KEY-EPEL-7
 RUN yum install deltarpm
