@@ -13,3 +13,4 @@ RUN yum install deltarpm
 RUN yum clean metadata
 RUN yum update
 RUN yum install @buildsys-build yum-utils rpm-sign
+RUN sed -i.original -e 's/^/#/' /etc/yum.repos.d/epel*.repo
