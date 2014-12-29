@@ -10,6 +10,6 @@ RUN chown -R mockbuild:mockbuild /docker-rpm-build-root
 RUN rpm --import /tmp/*.pub
 RUN yum clean metadata
 RUN yum update
-RUN yum install @buildsys-build yum-utils buildsys-macros perl
+RUN yum install @buildsys-build yum-utils buildsys-macros perl gnupg
 RUN cd /tmp && tar xzf /tmp/RPM-Toolbox-Spec-0.05.tar.gz && cd RPM-Toolbox-Spec-0.05 && perl Makefile.PL && make all install
 ADD files/tmp/yum-builddep /usr/bin/
