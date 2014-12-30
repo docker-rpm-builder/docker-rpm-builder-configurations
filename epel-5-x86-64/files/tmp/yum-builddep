@@ -1,6 +1,20 @@
 #!/bin/bash
 set -ex
-BUILDREQUIRES=$(/tmp/parse-spec-build-requires.pl $1)
+case $1 in
+    *.src.rpm)
+        pushd $(mktemp -d)
+        rpm2cpio $1 | cpio -iv --make-directories
+        BUILDREQUIRES=$(/tmp/parse-spec-build-requires.pl $(ls *.spec))
+        popd
+        ;;
+    *.spec)
+        BUILDREQUIRES=$(/tmp/parse-spec-build-requires.pl $1)
+        ;;
+    *)
+        echo "unrecognized extension in filename $1"
+        exit 1
+        ;;
+esac
 SHOULDINSTALL=""
 for v in ${BUILDREQUIRES}
 do
