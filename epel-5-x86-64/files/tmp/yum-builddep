@@ -3,7 +3,7 @@ set -ex
 case $1 in
     *.src.rpm)
         pushd $(mktemp -d)
-        rpm2cpio $1 | cpio -iv --make-directories
+        rpm2cpio $1 | cpio -iv --make-directories '*.spec'
         BUILDREQUIRES=$(/tmp/parse-spec-build-requires.pl $(ls *.spec))
         popd
         ;;
