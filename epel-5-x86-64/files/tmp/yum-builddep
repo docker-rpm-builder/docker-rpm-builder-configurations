@@ -1,17 +1,18 @@
 #!/bin/bash
 set -ex
+TARGET=$(readlink -f $1)
 case $1 in
     *.src.rpm)
         pushd $(mktemp -d)
-        rpm2cpio $1 | cpio -iv --make-directories '*.spec'
+        rpm2cpio $TARGET | cpio -iv --make-directories '*.spec'
         BUILDREQUIRES=$(/tmp/parse-spec-build-requires.pl $(ls *.spec))
         popd
         ;;
     *.spec)
-        BUILDREQUIRES=$(/tmp/parse-spec-build-requires.pl $1)
+        BUILDREQUIRES=$(/tmp/parse-spec-build-requires.pl $TARGET)
         ;;
     *)
-        echo "unrecognized extension in filename $1"
+        echo "unrecognized extension in filename $TARGET"
         exit 1
         ;;
 esac
