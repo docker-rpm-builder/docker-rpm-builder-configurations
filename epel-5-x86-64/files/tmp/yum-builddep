@@ -1,5 +1,11 @@
 #!/bin/bash
 set -ex
+
+# ignore any option; we're just a fake yum-builddep.
+if [ -n "$1" ] ; then
+   [[ "$1" =~ ^- ]] && shift
+fi
+
 TARGET=$(readlink -f $1)
 case $1 in
     *.src.rpm)
