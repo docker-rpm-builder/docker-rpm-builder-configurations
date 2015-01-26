@@ -1,3 +1,5 @@
+#!/bin/bash
+set -e
 pushd epel-5-x86-64
 docker build -t epel5dev .
 popd
