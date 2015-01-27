@@ -12,6 +12,10 @@ pushd epel-7-x86-64
 docker build -t epel7dev .
 popd
 
+pushd fedora-20-x86-64
+docker build -t fedora20dev .
+popd
+
 pushd fedora-21-x86-64
 docker build -t fedora21dev .
 popd
