@@ -6,7 +6,10 @@ prebuilt configurations for [docker-rpm-builder](https://github.com/alanfranz/do
 Those are designed to be ready, out of the box configurations that can be used to test the tool
 above and/or can be used as a template for your own, but have nothing magical. Feel free
 to use your own image, just respect the image requirements that are exposed in the README
-of the tool.
+of the tool in the [build images](https://github.com/alanfranz/docker-rpm-builder#build-images) section.
+
+Those images are opinionated; they disable the builtin repos and set the required repos directly
+in yum.conf; you can put additional repos in */etc/yum.repos.d*, however.
 
 
 FAQ

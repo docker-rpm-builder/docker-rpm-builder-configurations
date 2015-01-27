@@ -15,3 +15,7 @@ popd
 pushd fedora-21-x86-64
 docker build -t fedora21dev .
 popd
+
+pushd fedora-rawhide-x86-64
+docker build -t fedorarawhidedev .
+popd
