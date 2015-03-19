@@ -14,7 +14,7 @@ for arg in sys.argv[1:]:
         break
 
 lines = open(filename).readlines()
-nosources =  [line for line in lines if (not line.startswith("Source") and not line.startswith("Patch"))]
+nosources =  [line for line in lines if (not line.startswith("Source") and not line.startswith("Patch") and not "%setup" in line)]
 
 out = NamedTemporaryFile()
 out.write("".join(nosources))
