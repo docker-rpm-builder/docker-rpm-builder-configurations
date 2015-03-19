@@ -20,8 +20,8 @@ if filename.endswith(".src.rpm"):
     # just forward
     status, output = getstatusoutput("/usr/bin/yum-builddep.real %s %s" % (" ".join(forward_args), filename))
     if status != 0:
-	    print output
-    	sys.exit(1)
+        print output
+        sys.exit(1)
     sys.exit(0)
 
 lines = open(filename).readlines()
