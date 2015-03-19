@@ -1,33 +1,35 @@
-#!/bin/bash
-set -ex
+#!/usr/bin/env python
+import sys
+import os
+from commands import getstatusoutput
+from tempfile import NamedTemporaryFile
 
-# ignore any option; we're just a fake yum-builddep.
-while   [[ "$1" =~ ^- ]]
-do
-    shift
-done
+forward_args = []
+filename = None
+for arg in sys.argv[1:]:
+    if arg.startswith("-"):
+        forward_args.append(arg)
+    else:
+        filename = arg
+        break
 
-TARGET=$(readlink -f $1)
-case $1 in
-    *.src.rpm)
-        pushd $(mktemp -d)
-        rpm2cpio $TARGET | cpio -iv --make-directories '*.spec'
-        BUILDREQUIRES=$(/tmp/parse-spec-build-requires.pl $(ls *.spec))
-        popd
-        ;;
-    *.spec)
-        BUILDREQUIRES=$(/tmp/parse-spec-build-requires.pl $TARGET)
-        ;;
-    *)
-        echo "unrecognized extension in filename $TARGET"
-        exit 1
-        ;;
-esac
-SHOULDINSTALL=""
-for v in ${BUILDREQUIRES}
-do
-    { yum info ${v} > /dev/null && PACKAGE=${v} ; } || PACKAGE=$(repoquery --arch=$(arch) --whatprovides ${v})
-    SHOULDINSTALL="${SHOULDINSTALL} ${PACKAGE}"
-done
-SHOULDINSTALL=$(echo -n ${SHOULDINSTALL} | sed -e 's/^ *//' -e 's/ *$//')
-{ [ -n "${SHOULDINSTALL}" ] && yum install -y $SHOULDINSTALL ; } || /bin/true
+lines = open(filename).readlines()
+nosources =  [line for line in lines if (not line.startswith("Source") and not line.startswith("Patch"))]
+
+out = NamedTemporaryFile()
+out.write("".join(nosources))
+out.flush()
+
+status, output = getstatusoutput("/usr/bin/rpmbuild --nodeps -bs %s" % out.name)
+if status != 0:
+	print output
+	sys.exit(1)
+
+srpm = output.replace("Wrote: ", "").strip()
+# we aren't doing a proper sanification of what's forwarded to yum-builddep, let's hope we don't need it.
+status, output = getstatusoutput("/usr/bin/yum-builddep.real %s %s" % (" ".join(forward_args), srpm))
+if status != 0:
+	print output
+	sys.exit(1)
+
+os.unlink(srpm)
