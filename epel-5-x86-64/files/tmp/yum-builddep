@@ -13,6 +13,17 @@ for arg in sys.argv[1:]:
         filename = arg
         break
 
+if filename is None:
+    raise ValueError, "could not find filename in parameters"
+
+if filename.endswith(".src.rpm"):
+    # just forward
+    status, output = getstatusoutput("/usr/bin/yum-builddep.real %s %s" % (" ".join(forward_args), filename))
+    if status != 0:
+	    print output
+    	sys.exit(1)
+    sys.exit(0)
+
 lines = open(filename).readlines()
 nosources =  [line for line in lines if (not line.startswith("Source") and not line.startswith("Patch") and not "%setup" in line)]
 
