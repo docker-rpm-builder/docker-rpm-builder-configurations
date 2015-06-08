@@ -6,8 +6,6 @@ ADD files/etc/yum.repos.d/rawhide.repo /etc/yum.repos.d/rawhide.repo
 ADD files/etc/rpm/macros.drb /etc/rpm/macros.drb
 ADD files/tmp /tmp
 RUN rpm --import  /tmp/*.txt
-RUN yum clean metadata
-RUN yum -y install dnf
-RUN dnf -y deltarpm
+RUN dnf -y install deltarpm
 RUN dnf -y upgrade
 RUN dnf -y install @buildsys-build yum-utils rpm-sign gnupg
