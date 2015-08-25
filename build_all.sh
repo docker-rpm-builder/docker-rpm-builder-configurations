@@ -4,6 +4,10 @@ pushd epel-5-x86-64
 docker build --pull -t epel5dev .
 popd
 
+pushd epel-5-i386
+docker build --pull -t epel5i386dev .
+popd
+
 pushd epel-6-x86-64
 docker build --pull -t epel6dev .
 popd
