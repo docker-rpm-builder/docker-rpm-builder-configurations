@@ -8,5 +8,5 @@ RUN rpm --import /tmp/*.pub
 RUN yum clean metadata
 RUN yum install yum-presto
 RUN yum update
-RUN yum install @buildsys-build yum-utils
+RUN yum install @Base @buildsys-build yum-utils
 RUN sed -i.original -e 's/^/#/' /etc/yum.repos.d/epel*.repo

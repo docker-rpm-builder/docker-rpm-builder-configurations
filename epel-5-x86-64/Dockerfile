@@ -7,7 +7,7 @@ ADD files/tmp /tmp
 RUN rpm --import /tmp/*.pub
 RUN yum clean metadata
 RUN yum update
-RUN yum install @buildsys-build yum-utils buildsys-macros perl gnupg python rpm-build
+RUN yum install @buildsys-build @Base yum-utils buildsys-macros perl gnupg python rpm-build
 RUN mv /usr/bin/yum-builddep /usr/bin/yum-builddep.real
 ADD files/tmp/yum-builddep /usr/bin/
 RUN sed -i.original -e 's/^/#/' /etc/yum.repos.d/epel*.repo || /bin/true
