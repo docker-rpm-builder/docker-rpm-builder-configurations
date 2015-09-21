@@ -8,5 +8,4 @@ RUN rpm --import  /tmp/*.txt
 RUN yum install deltarpm
 RUN yum clean metadata
 RUN yum update
-RUN yum install @buildsys-build yum-utils rpm-sign gnupg
-RUN yum groupinstall "Minimal Install"
+RUN yum install @buildsys-build yum-utils rpm-sign gnupg which
