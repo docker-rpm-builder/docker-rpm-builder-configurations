@@ -1,5 +1,6 @@
 FROM centos:centos5
 MAINTAINER Alan Franzoni username@franzoni.eu
+RUN yum -y install epel-release
 ADD files/etc/yum.conf /etc/
 RUN sed -i.original -e 's/^/#/' /etc/yum.repos.d/*.repo
 ADD files/etc/rpm/macros.drb /etc/rpm/macros.drb
