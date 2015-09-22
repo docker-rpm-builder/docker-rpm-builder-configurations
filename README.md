@@ -29,6 +29,7 @@ Use the following repositories/tags:
 
 * alanfranz/drb-fedora-20-x86-64:latest
 * alanfranz/drb-fedora-21-x86-64:latest
+* alanfranz/drb-fedora-22-x86-64:latest
 * alanfranz/drb-fedora-rawhide-x86-64:latest
 
 FAQ
@@ -45,3 +46,7 @@ Check [this article](http://muehe.org/posts/switching-docker-from-aufs-to-device
 ### Centos5+EPEL5
 The yum-builddep has been hacked since the original one in Centos 5 doesn't work with bare specfiles.
 It should work, but can occasionally do something strange.
+
+### Rawhide
+There're some occasional glitches with the rawhide image; those happen because of the rapid development
+of such os. Try again later. 
