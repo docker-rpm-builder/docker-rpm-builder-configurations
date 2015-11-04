@@ -28,6 +28,11 @@ pushd fedora-22-x86-64
 docker build --no-cache --pull -t fedora22dev .
 popd
 
+pushd fedora-23-x86-64
+docker build --no-cache --pull -t fedora23dev .
+popd
+
+
 pushd fedora-rawhide-x86-64
 docker build --no-cache --pull -t fedorarawhidedev .
 popd
