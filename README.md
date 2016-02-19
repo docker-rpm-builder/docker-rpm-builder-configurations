@@ -25,11 +25,14 @@ Use the following repositories/tags:
 * alanfranz/drb-epel-6-x86-64:latest
 * alanfranz/drb-epel-7-x86-64:latest
 
+The following is EXPERIMENTAL and UNSUPPORTED:
+
+* alanfranz/drb-epel-5-i386:latest
+
 ## Fedora
 
-* alanfranz/drb-fedora-20-x86-64:latest
-* alanfranz/drb-fedora-21-x86-64:latest
 * alanfranz/drb-fedora-22-x86-64:latest
+* alanfranz/drb-fedora-23-x86-64:latest
 * alanfranz/drb-fedora-rawhide-x86-64:latest
 
 FAQ
