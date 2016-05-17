@@ -8,5 +8,5 @@ RUN rpm --import  /tmp/fd431d51.txt /tmp/RPM-GPG-KEY-CentOS-7 /tmp/RPM-GPG-KEY-E
 RUN yum install deltarpm
 RUN yum clean metadata
 RUN yum update
-RUN yum install @buildsys-build yum-utils rpm-sign
+RUN yum install @Base @buildsys-build yum-utils rpm-sign
 RUN sed -i.original -e 's/^/#/' /etc/yum.repos.d/epel*.repo
