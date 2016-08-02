@@ -31,8 +31,8 @@ The following is EXPERIMENTAL and UNSUPPORTED:
 
 ## Fedora
 
-* alanfranz/drb-fedora-22-x86-64:latest
 * alanfranz/drb-fedora-23-x86-64:latest
+* alanfranz/drb-fedora-24-x86-64:latest
 * alanfranz/drb-fedora-rawhide-x86-64:latest
 
 FAQ
