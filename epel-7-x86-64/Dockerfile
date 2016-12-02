@@ -1,4 +1,4 @@
-FROM centos:centos7
+FROM centos:0584b3d2cf6d
 MAINTAINER Alan Franzoni username@franzoni.eu
 ADD files/etc/yum.conf /etc/
 RUN sed -i.original -e 's/^/#/' /etc/yum.repos.d/*.repo
