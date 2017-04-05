@@ -21,17 +21,17 @@ Use the following repositories/tags:
 
 ## Centos + EPEL
 
-* alanfranz/drb-epel-5-x86-64:latest
 * alanfranz/drb-epel-6-x86-64:latest
 * alanfranz/drb-epel-7-x86-64:latest
 
-The following is EXPERIMENTAL and UNSUPPORTED:
+The following CentOS 5 images are LEGACY and TOTALLY UNSUPPORTED:
 
 * alanfranz/drb-epel-5-i386:latest
+* alanfranz/drb-epel-5-x86-64:latest
 
 ## Fedora
 
-* alanfranz/drb-fedora-23-x86-64:latest
+* alanfranz/drb-fedora-25-x86-64:latest
 * alanfranz/drb-fedora-24-x86-64:latest
 * alanfranz/drb-fedora-rawhide-x86-64:latest
 
