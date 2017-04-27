@@ -15,25 +15,20 @@ in yum.conf; you can put additional repos in */etc/yum.repos.d*, however.
 Using the images
 ================
 
-All the images are available on [docker hub](https://hub.docker.com/u/alanfranz/).
+All the images are available on [docker hub](https://hub.docker.com/r/alanfranz/docker-rpm-builder-configurations/).
 
 Use the following repositories/tags:
 
-## Centos + EPEL
+## Centos (includes EPEL)
 
-* alanfranz/drb-epel-6-x86-64:latest
-* alanfranz/drb-epel-7-x86-64:latest
-
-The following CentOS 5 images are LEGACY and TOTALLY UNSUPPORTED:
-
-* alanfranz/drb-epel-5-i386:latest
-* alanfranz/drb-epel-5-x86-64:latest
+* alanfranz/docker-rpm-builder-configurations:centos-6
+* alanfranz/docker-rpm-builder-configurations:centos-7
 
 ## Fedora
 
-* alanfranz/drb-fedora-25-x86-64:latest
-* alanfranz/drb-fedora-24-x86-64:latest
-* alanfranz/drb-fedora-rawhide-x86-64:latest
+* alanfranz/docker-rpm-builder-configurations:fedora-24
+* alanfranz/docker-rpm-builder-configurations:fedora-25
+* alanfranz/docker-rpm-builder-configurations:fedora-rawhide
 
 FAQ
 ===
@@ -46,10 +41,6 @@ There's nothing I can do about that right now, the issue is there in upstream im
 
 Check [this article](http://muehe.org/posts/switching-docker-from-aufs-to-devicemapper/) for some details.
 
-### Centos5+EPEL5
-The yum-builddep has been hacked since the original one in Centos 5 doesn't work with bare specfiles.
-It should work, but can occasionally do something strange.
-
-### Rawhide
+### Fedora Rawhide
 There're some occasional glitches with the rawhide image; those happen because of the rapid development
 of such os. Try again later. 
