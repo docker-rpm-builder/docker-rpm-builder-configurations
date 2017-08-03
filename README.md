@@ -28,7 +28,6 @@ Use the following repositories/tags:
 
 * alanfranz/docker-rpm-builder-configurations:fedora-25
 * alanfranz/docker-rpm-builder-configurations:fedora-26
-* alanfranz/docker-rpm-builder-configurations:fedora-rawhide
 
 FAQ
 ===
