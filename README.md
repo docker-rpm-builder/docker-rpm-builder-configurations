@@ -40,6 +40,5 @@ There's nothing I can do about that right now, the issue is there in upstream im
 
 Check [this article](http://muehe.org/posts/switching-docker-from-aufs-to-devicemapper/) for some details.
 
-### Fedora Rawhide
-There're some occasional glitches with the rawhide image; those happen because of the rapid development
-of such os. Try again later. 
+### Fedora 26
+There seem to be some glitches with the image. I'm working on it.
