@@ -6,4 +6,4 @@ ADD files/tmp /tmp
 RUN rpm --import  /tmp/*.txt
 RUN dnf -y install deltarpm
 RUN dnf -y upgrade
-RUN dnf -y install @"Minimal Install" @buildsys-build yum-utils rpm-sign gnupg
+RUN dnf -y install @"Minimal Install" @buildsys-build yum-utils rpm-sign gnupg expect
