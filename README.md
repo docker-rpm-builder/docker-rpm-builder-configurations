@@ -26,8 +26,8 @@ Use the following repositories/tags:
 
 ## Fedora
 
-* alanfranz/docker-rpm-builder-configurations:fedora-26
 * alanfranz/docker-rpm-builder-configurations:fedora-27
+* alanfranz/docker-rpm-builder-configurations:fedora-28
 
 
 FAQ
